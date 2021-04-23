@@ -3,24 +3,34 @@
 # For Rachel
 
 
-echo "********************************"
-echo "Aunt Fanny Coding LLC"
-echo "All rights reserved. 2021"
-echo "This program is free software and distributed under the terms of the GNU"
-echo "********************************"
+printf "\n********************************\n"
+printf "Aunt Fanny Coding LLC\n"
+printf "All rights reserved. 2021\n"
+printf "This program is free software and distributed under the terms of the GNU\n"
+printf "********************************\n"
 
-echo " "
+printf "\n"
 
-echo "DELETING SPICETIFY FILES"
-if [ -d "$PWD/spicetify-cli/test" ]; then
-    echo "/spicetify-cli/ exists. Deleting..."
+printf "\e[93mDELETING SPICETIFY FILES IF EXISTS\n"
+if [ -d "$PWD/spicetify-cli/" ]; then
+    printf "/spicetify-cli/ exists. Deleting...\n"
+    printf "\e[36mm"
     rm -R -v $PWD/spicetify-cli/test
-    echo "DELETED"
-if [ -d "$PWD/spicetify_data/test" ]; then
-    echo "/spicetify_data/ exists. Deleting..."
-    rm -R -v $PWD/spicetify_data/test
-    echo "DELETED"
+    printf "\e[31mDELETED\n"
+fi
 
-echo "INSTALLING NEW pref FILE"
-sed -i'.bak' '/ui\.\experience_override="xpui"/c\' $PWD/Documents/test/prefs
-echo 'ui.experience_override="classic"' >> $PWD/Documents/test/prefs
+printf " "
+
+if [ -d "$PWD/spicetify_data/test" ]; then
+    printf "\e[93m/spicetify_data/ exists. Deleting...\n"
+    printf "\e[36mm"
+    rm -R -v $PWD/spicetify_data/test
+    printf "\e[31mDELETED\n"
+fi
+
+printf "\e[32mOVERWRITING EXISTING pref FILE...\n"
+sed -i'.bak' '/ui\.\experience_override="xpui"/c\' $PWD/'Library/Application Support/Spotify/prefs'
+printf 'ui.experience_override="classic"' >> $PWD/'Library/Application Support/Spotify/prefs'
+printf "\e[32mDONE\n"
+
+printf "\e[92mComplete!\n"
