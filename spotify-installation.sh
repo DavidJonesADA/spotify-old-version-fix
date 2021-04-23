@@ -10,18 +10,22 @@ echo "This program is free software and distributed under the terms of the GNU"
 echo "********************************"
 
 echo " "
-echo " "
-echo " "
 
 echo "REMOING EXISTING xpui.spa file"
 rm /Applications/Spotify.app/Contents/Resources/Apps/xpui.spa
 
-echo "INSTALLING NEW xpui.spa file"
-curl --output-dir /Applications/Spotify.app/Contents/Resources/Apps "https://github.com/DavidJonesADA/spotify-old-version-fix/raw/main/xpui.spa"
+echo " "
 
-FILE=/Applications/Spotify.app/Contents/Resources/Apps/xpui.spa
+echo "INSTALLING NEW xpui.spa file"
+curl --output /tmp/spotify-old-installation/xpui.spa --create-dirs "https://raw.githubusercontent.com/DavidJonesADA/spotify-old-version-fix/main/xpui.spa"
+
+echo " "
+
+FILE=/tmp/spotify-old-installation/xpui.spa
 if [ -f "$FILE" ]; then
     echo "$FILE exists."
+    echo "DELETING FOLDER"
+    rm -iR /tmp/spotify-old-installation/x
 else 
     echo "$FILE does not exist."
 fi
