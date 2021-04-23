@@ -11,15 +11,15 @@ printf "********************************\n"
 
 printf "\n"
 
+pkill Spotify
+
 printf "\e[93mDELETING SPICETIFY FILES IF EXISTS\n"
-if [ -d "$PWD/spicetify-cli/" ]; then
+if [ -d "$PWD/spicetify-cli/test" ]; then
     printf "/spicetify-cli/ exists. Deleting...\n"
     printf "\e[36mm"
     rm -R -v $PWD/spicetify-cli/test
     printf "\e[31mDELETED\n"
 fi
-
-printf " "
 
 if [ -d "$PWD/spicetify_data/test" ]; then
     printf "\e[93m/spicetify_data/ exists. Deleting...\n"
@@ -34,3 +34,5 @@ printf 'ui.experience_override="classic"' >> $PWD/'Library/Application Support/S
 printf "\e[32mDONE\n"
 
 printf "\e[92mComplete!\n"
+
+open /Applications/Spotify.app
