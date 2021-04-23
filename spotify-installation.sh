@@ -11,23 +11,19 @@ echo "********************************"
 
 echo " "
 
-echo "REMOING EXISTING xpui.spa file"
-rm /Applications/Spotify.app/Contents/Resources/Apps/xpui.spa
+echo "DELETING SPICETIFY FILES"
+if [ -f "$PWD/spicetify-cli/test" ]; then
+    echo "/spicetify-cli/ exists. Deleting..."
+    rm -R -v $PWD/spicetify-cli/test
+    echo "DELETED"
+if [ -f "$PWD/spicetify_data/test" ]; then
+    echo "/spicetify_data/ exists. Deleting..."
+    rm -R -v $PWD/spicetify_data/test
+    echo "DELETED"
 
-echo " "
+echo "INSTALLING NEW pref FILE"
+sed -i'.bak' '/ui\.\experience_override="xpui"/c\' $PWD/Documents/test/prefs
+echo 'ui.experience_override="classic"' >> $PWD/Documents/test/prefs
 
-echo "INSTALLING NEW xpui.spa file"
-curl --output /tmp/spotify-old-installation/xpui.spa --create-dirs "https://raw.githubusercontent.com/DavidJonesADA/spotify-old-version-fix/main/xpui.spa"
 
-echo " "
-
-FILE=/tmp/spotify-old-installation/xpui.spa
-if [ -f "$FILE" ]; then
-    echo "$FILE exists."
-    mv /tmp/spotify-old-installation/xpui.spa /Applications/Spotify.app/Contents/Resources/Apps/xpui.spa
-    echo "DELETING FOLDER"
-    rm -R /tmp/spotify-old-installation/
-    echo "DONE!"
-else 
-    echo "$FILE does not exist."
-fi
+echo "Done!"
