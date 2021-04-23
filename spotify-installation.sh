@@ -12,11 +12,11 @@ echo "********************************"
 echo " "
 
 echo "DELETING SPICETIFY FILES"
-if [ -f "$PWD/spicetify-cli/test" ]; then
+if [ -d "$PWD/spicetify-cli/test" ]; then
     echo "/spicetify-cli/ exists. Deleting..."
     rm -R -v $PWD/spicetify-cli/test
     echo "DELETED"
-if [ -f "$PWD/spicetify_data/test" ]; then
+if [ -d "$PWD/spicetify_data/test" ]; then
     echo "/spicetify_data/ exists. Deleting..."
     rm -R -v $PWD/spicetify_data/test
     echo "DELETED"
@@ -24,6 +24,3 @@ if [ -f "$PWD/spicetify_data/test" ]; then
 echo "INSTALLING NEW pref FILE"
 sed -i'.bak' '/ui\.\experience_override="xpui"/c\' $PWD/Documents/test/prefs
 echo 'ui.experience_override="classic"' >> $PWD/Documents/test/prefs
-
-
-echo "Done!"
