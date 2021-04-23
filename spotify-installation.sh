@@ -24,8 +24,10 @@ echo " "
 FILE=/tmp/spotify-old-installation/xpui.spa
 if [ -f "$FILE" ]; then
     echo "$FILE exists."
+    mv /tmp/spotify-old-installation/xpui.spa /Applications/Spotify.app/Contents/Resources/Apps/xpui.spa
     echo "DELETING FOLDER"
-    rm -iR /tmp/spotify-old-installation/x
+    rm -R /tmp/spotify-old-installation/
+    echo "DONE!"
 else 
     echo "$FILE does not exist."
 fi
