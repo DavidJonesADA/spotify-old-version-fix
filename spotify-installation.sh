@@ -7,7 +7,6 @@ printf "\n********************************\n"
 printf "Aunt Fanny Coding LLC\n"
 printf "All rights reserved. 2021\n"
 printf "This program is free software and distributed under the terms of the GNU\n"
-printf "for rachel\n"
 printf "********************************\n"
 
 printf "\n"
